@@ -239,15 +239,16 @@ public class ShoppingCartSimulator extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton_calculateTotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_calculateTotalActionPerformed
-        int total;
-        int beefPounds = Integer.parseInt(jTextField_beefPounds.getText());
-        int chickenPounds = Integer.parseInt(jTextField_chickenPounds.getText());
-        int fishPounds = Integer.parseInt(jTextField_fishPounds.getText());
-        //ricePounds *= 2;
-        //beansPounds *= 3;
-        //spaghettiPounds *= 4;
+
+        int beefPrice = Integer.parseInt(jTextField_beefPounds.getText()) * 5;
+        int chickenPrice = Integer.parseInt(jTextField_chickenPounds.getText()) * 4;
+        int fishPrice = Integer.parseInt(jTextField_fishPounds.getText()) * 8;
+        int ricePrice = Integer.parseInt(jTextField_ricePounds.getText()) * 2;
+        int beansPrice = Integer.parseInt(jTextField_beansPounds.getText()) * 3;
+        int spaghettiPrice = Integer.parseInt(jTextField_spaghettiPounds.getText()) * 4;
+        int total = beefPrice + chickenPrice + fishPrice + ricePrice + beansPrice + spaghettiPrice;
         
-        //int total = beefPounds + chickenPounds + fishPounds + ricePounds + beansPounds + spaghettiPounds;
+        jLabel_total.setText(Integer.toString(total));
     }//GEN-LAST:event_jButton_calculateTotalActionPerformed
 
     /**
