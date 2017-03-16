@@ -14,14 +14,6 @@ public class ShoppingCartSimulator extends javax.swing.JFrame {
     /**
      * Creates new form ShoppingCartSimulator
      */
-    
-    //private int beefPounds;
-    //private int chickenPounds;
-    //private int fishPounds;
-    //private int ricePounds;
-    //private int beansPounds;
-    //private int spaghettiPounds;
-    
     public ShoppingCartSimulator() {
         initComponents();
     }
@@ -102,10 +94,25 @@ public class ShoppingCartSimulator extends javax.swing.JFrame {
         });
 
         jButton_cancel.setText("Cancel");
+        jButton_cancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_cancelActionPerformed(evt);
+            }
+        });
 
         jButton_reset.setText("Reset");
+        jButton_reset.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_resetActionPerformed(evt);
+            }
+        });
 
         jButton_checkout.setText("Checkout");
+        jButton_checkout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_checkoutActionPerformed(evt);
+            }
+        });
 
         jLabel_total.setText(" ");
 
@@ -250,6 +257,24 @@ public class ShoppingCartSimulator extends javax.swing.JFrame {
         
         jLabel_total.setText(Integer.toString(total));
     }//GEN-LAST:event_jButton_calculateTotalActionPerformed
+
+    private void jButton_cancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_cancelActionPerformed
+        
+        System.exit(0);
+    }//GEN-LAST:event_jButton_cancelActionPerformed
+
+    private void jButton_resetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_resetActionPerformed
+        jTextField_beefPounds.setText("0");
+        jTextField_chickenPounds.setText("0");
+        jTextField_fishPounds.setText("0");
+        jTextField_ricePounds.setText("0");
+        jTextField_beansPounds.setText("0");
+        jTextField_spaghettiPounds.setText("0");
+    }//GEN-LAST:event_jButton_resetActionPerformed
+
+    private void jButton_checkoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_checkoutActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton_checkoutActionPerformed
 
     /**
      * @param args the command line arguments
