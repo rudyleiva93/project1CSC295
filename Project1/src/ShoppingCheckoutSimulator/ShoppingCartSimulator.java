@@ -273,7 +273,10 @@ public class ShoppingCartSimulator extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton_resetActionPerformed
 
     private void jButton_checkoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_checkoutActionPerformed
-        // TODO add your handling code here:
+        
+        CheckoutWindow cw = new CheckoutWindow();
+        cw.setVisible(true);
+        
     }//GEN-LAST:event_jButton_checkoutActionPerformed
 
     /**
