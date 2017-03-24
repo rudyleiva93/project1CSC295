@@ -213,10 +213,20 @@ public class CheckoutWindow extends javax.swing.JFrame {
         
         CustomerInfo cust = new CustomerInfo();
         
-        jRadioButton_mr.setActionCommand(jRadioButton_mr.getText());
-        jRadioButton_ms.setActionCommand(jRadioButton_ms.getText());
-        jRadioButton_mrs.setActionCommand(jRadioButton_mrs.getText());
-        cust.setTitle(buttonGroup1.getSelection().getActionCommand());
+        //jRadioButton_mr.setActionCommand(jRadioButton_mr.getText());
+        //jRadioButton_ms.setActionCommand(jRadioButton_ms.getText());
+        //jRadioButton_mrs.setActionCommand(jRadioButton_mrs.getText());
+        //cust.setTitle(buttonGroup1.getSelection().getActionCommand());
+        
+        if (jRadioButton_mr.isSelected())
+            cust.setTitle(jRadioButton_mr.getText());
+        else if (jRadioButton_ms.isSelected())
+            cust.setTitle(jRadioButton_ms.getText());
+        else if (jRadioButton_mrs.isSelected())
+            cust.setTitle(jRadioButton_mrs.getText());
+        else
+            JOptionPane.showMessageDialog(null, "Must Select a title!", "Error", JOptionPane.ERROR_MESSAGE);
+        
         cust.setFirstName(jTextField_firstName.getText());
         cust.setFirstName(jTextField_lastName.getText());
         cust.setFirstName(jTextField_address1.getText());
@@ -226,15 +236,10 @@ public class CheckoutWindow extends javax.swing.JFrame {
         cust.setState(state);
         cust.setPostcode(jTextField_postcode.getText());
         cust.setVisa(jTextField_visa.getText());
+        System.out.println(cust.getFirstName());
         
-        if (cust.getTitle().equals("")) //|| !(cust.getTitle().equals("Ms.")) || !(cust.getTitle().equals("Mrs.")))
-        {
-            JOptionPane.showMessageDialog(null, "Must Select a title!", "Error", JOptionPane.ERROR_MESSAGE);
-        }
-        //System.out.println(cust.getTitle());
         
         customer.add(cust);
-        
         
     }//GEN-LAST:event_jButton_submitActionPerformed
 
