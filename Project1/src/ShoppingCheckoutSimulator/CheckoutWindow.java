@@ -11,11 +11,12 @@ package ShoppingCheckoutSimulator;
  */
 
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 public class CheckoutWindow extends javax.swing.JFrame {
 
+    //private ArrayList<String> customer = new ArrayList<String>();
     private ArrayList<CustomerInfo> customer = new ArrayList<CustomerInfo>();
-    
     /**
      * Creates new form CheckoutWindow
      */
@@ -209,6 +210,30 @@ public class CheckoutWindow extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton_submitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_submitActionPerformed
+        
+        CustomerInfo cust = new CustomerInfo();
+        
+        jRadioButton_mr.setActionCommand(jRadioButton_mr.getText());
+        jRadioButton_ms.setActionCommand(jRadioButton_ms.getText());
+        jRadioButton_mrs.setActionCommand(jRadioButton_mrs.getText());
+        cust.setTitle(buttonGroup1.getSelection().getActionCommand());
+        cust.setFirstName(jTextField_firstName.getText());
+        cust.setFirstName(jTextField_lastName.getText());
+        cust.setFirstName(jTextField_address1.getText());
+        cust.setFirstName(jTextField_address2.getText());
+        cust.setFirstName(jTextField_city.getText());
+        String state = (String)jComboBox_state.getSelectedItem();
+        cust.setState(state);
+        cust.setPostcode(jTextField_postcode.getText());
+        cust.setVisa(jTextField_visa.getText());
+        
+        if (cust.getTitle().equals("")) //|| !(cust.getTitle().equals("Ms.")) || !(cust.getTitle().equals("Mrs.")))
+        {
+            JOptionPane.showMessageDialog(null, "Must Select a title!", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+        //System.out.println(cust.getTitle());
+        
+        customer.add(cust);
         
         
     }//GEN-LAST:event_jButton_submitActionPerformed
