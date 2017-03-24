@@ -79,14 +79,14 @@
                                   </Group>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jTextField_firstName" min="-2" pref="78" max="-2" attributes="0"/>
-                                      <Group type="102" alignment="0" attributes="0">
+                                      <Group type="102" attributes="0">
                                           <Component id="jRadioButton_mr" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace type="separate" max="-2" attributes="0"/>
                                           <Component id="jRadioButton_ms" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace type="separate" max="-2" attributes="0"/>
                                           <Component id="jRadioButton_mrs" min="-2" max="-2" attributes="0"/>
                                       </Group>
+                                      <Component id="jTextField_firstName" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>

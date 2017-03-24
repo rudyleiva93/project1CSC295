@@ -147,13 +147,13 @@ public class CheckoutWindow extends javax.swing.JFrame {
                                         .addComponent(jLabel_title))
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jTextField_firstName, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGroup(layout.createSequentialGroup()
                                             .addComponent(jRadioButton_mr)
                                             .addGap(18, 18, 18)
                                             .addComponent(jRadioButton_ms)
                                             .addGap(18, 18, 18)
-                                            .addComponent(jRadioButton_mrs))))))
+                                            .addComponent(jRadioButton_mrs))
+                                        .addComponent(jTextField_firstName)))))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -228,16 +228,19 @@ public class CheckoutWindow extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Must Select a title!", "Error", JOptionPane.ERROR_MESSAGE);
         
         cust.setFirstName(jTextField_firstName.getText());
-        cust.setFirstName(jTextField_lastName.getText());
-        cust.setFirstName(jTextField_address1.getText());
-        cust.setFirstName(jTextField_address2.getText());
-        cust.setFirstName(jTextField_city.getText());
+        cust.setLastName(jTextField_lastName.getText());
+        cust.setAddress1(jTextField_address1.getText());
+        cust.setAddress2(jTextField_address2.getText());
+        cust.setCity(jTextField_city.getText());
         String state = (String)jComboBox_state.getSelectedItem();
         cust.setState(state);
         cust.setPostcode(jTextField_postcode.getText());
         cust.setVisa(jTextField_visa.getText());
-        System.out.println(cust.getFirstName());
         
+        /*if (cust.getFirstName() == "")
+            JOptionPane.showMessageDialog(null, "Must enter your first name!", "Error", JOptionPane.ERROR_MESSAGE);
+        if (cust.getLastName() == "")
+            JOptionPane.showMessageDialog(null, "Must enter your last name!", "Error", JOptionPane.ERROR_MESSAGE);*/
         
         customer.add(cust);
         
