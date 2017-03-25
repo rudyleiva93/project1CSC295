@@ -11,12 +11,13 @@ package ShoppingCheckoutSimulator;
  */
 
 import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JOptionPane;
 
 public class CheckoutWindow extends javax.swing.JFrame {
 
     //private ArrayList<String> customer = new ArrayList<String>();
-    private ArrayList<CustomerInfo> customer = new ArrayList<CustomerInfo>();
+    private List<CustomerInfo> customer = new ArrayList<CustomerInfo>();
     /**
      * Creates new form CheckoutWindow
      */
@@ -79,8 +80,18 @@ public class CheckoutWindow extends javax.swing.JFrame {
         jLabel_postcode.setText("Postcode");
 
         jButton_cancel.setText("Cancel");
+        jButton_cancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_cancelActionPerformed(evt);
+            }
+        });
 
         jButton_search.setText("Search");
+        jButton_search.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_searchActionPerformed(evt);
+            }
+        });
 
         jButton_submit.setText("Submit");
         jButton_submit.addActionListener(new java.awt.event.ActionListener() {
@@ -219,13 +230,21 @@ public class CheckoutWindow extends javax.swing.JFrame {
         //cust.setTitle(buttonGroup1.getSelection().getActionCommand());
         
         if (jRadioButton_mr.isSelected())
+        {
             cust.setTitle(jRadioButton_mr.getText());
+        }
         else if (jRadioButton_ms.isSelected())
+        {
             cust.setTitle(jRadioButton_ms.getText());
+        }
         else if (jRadioButton_mrs.isSelected())
+        {
             cust.setTitle(jRadioButton_mrs.getText());
+        }
         else
+        {
             JOptionPane.showMessageDialog(null, "Must Select a title!", "Error", JOptionPane.ERROR_MESSAGE);
+        }
         
         cust.setFirstName(jTextField_firstName.getText());
         cust.setLastName(jTextField_lastName.getText());
@@ -237,14 +256,57 @@ public class CheckoutWindow extends javax.swing.JFrame {
         cust.setPostcode(jTextField_postcode.getText());
         cust.setVisa(jTextField_visa.getText());
         
-        /*if (cust.getFirstName() == "")
-            JOptionPane.showMessageDialog(null, "Must enter your first name!", "Error", JOptionPane.ERROR_MESSAGE);
-        if (cust.getLastName() == "")
-            JOptionPane.showMessageDialog(null, "Must enter your last name!", "Error", JOptionPane.ERROR_MESSAGE);*/
-        
-        customer.add(cust);
+      if (cust.getFirstName().equals(""))
+      {
+          JOptionPane.showMessageDialog(null, "Must enter your first name!", "Error", JOptionPane.ERROR_MESSAGE);
+      }
+      else if (cust.getLastName().equals(""))
+      {
+          JOptionPane.showMessageDialog(null, "Must enter your last name!", "Error", JOptionPane.ERROR_MESSAGE);
+      }
+      else if (cust.getAddress1().equals(""))
+      {
+          JOptionPane.showMessageDialog(null, "Must enter your address!", "Error", JOptionPane.ERROR_MESSAGE);
+      }
+      else if (cust.getCity().equals(""))
+      {
+          JOptionPane.showMessageDialog(null, "Must enter your city!", "Error", JOptionPane.ERROR_MESSAGE);
+      }
+      else if (cust.getPostcode().equals(""))
+      {
+          JOptionPane.showMessageDialog(null, "Must enter your postcode!", "Error", JOptionPane.ERROR_MESSAGE);
+      }
+      else if (cust.getVisa().equals(""))
+      {
+          JOptionPane.showMessageDialog(null, "Must enter your visa number!", "Error", JOptionPane.ERROR_MESSAGE);
+      }
+        else
+      {
+          customer.add(cust);
+          JOptionPane.showMessageDialog(null, "Order Submitted! Click the Search button to search, modify, or delete order!", "Order Submitted", JOptionPane.INFORMATION_MESSAGE);
+          
+         // jTextField_firstName.setText("");
+          //jTextField_lastName.setText("");
+          //jTextField_address1.setText("");
+          //jTextField_address2.setText("");
+          //jTextField_city.setText("");
+          //jTextField_postcode.setText("");
+          //jTextField_visa.setText("");
+          dispose();
+      }
         
     }//GEN-LAST:event_jButton_submitActionPerformed
+
+    private void jButton_searchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_searchActionPerformed
+        
+        dispose();
+        SearchWindow sw = new SearchWindow();
+        sw.setVisible(true);
+    }//GEN-LAST:event_jButton_searchActionPerformed
+
+    private void jButton_cancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_cancelActionPerformed
+        dispose();
+    }//GEN-LAST:event_jButton_cancelActionPerformed
 
     /**
      * @param args the command line arguments
