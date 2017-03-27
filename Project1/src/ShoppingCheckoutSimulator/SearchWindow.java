@@ -16,15 +16,15 @@ public class SearchWindow extends javax.swing.JFrame {
     
     private CheckoutWindow cw;
     private List<CustomerInfo>customer = new ArrayList<CustomerInfo>();
-    private int orderNumber = 0;
+    //private int orderNumber = 0;
 
     /**
      * Creates new form SearchWindow
      */
-    public SearchWindow(CheckoutWindow cw, List<CustomerInfo> customer, int orderNumber) {
+    public SearchWindow(CheckoutWindow cw, List<CustomerInfo> customer) {
         this.cw = cw;
         this.customer = customer;
-        this.orderNumber = orderNumber;
+       // this.orderNumber = orderNumber;
         
         initComponents();
     }
