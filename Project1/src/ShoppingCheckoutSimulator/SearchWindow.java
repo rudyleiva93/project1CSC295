@@ -65,6 +65,11 @@ public class SearchWindow extends javax.swing.JFrame {
         });
 
         jButton_search2.setText("Search");
+        jButton_search2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_search2ActionPerformed(evt);
+            }
+        });
 
         jLabel_searchResult.setText("Search Result");
 
@@ -167,8 +172,34 @@ public class SearchWindow extends javax.swing.JFrame {
                                                "\nPsotcode: " + customer.get(i).getPostcode() + 
                                                "\nVisa Number: " + customer.get(i).getVisa());
             }
+            else
+            {
+                jTextArea_searchResult.setText("CUSTOMER NAME NOT FOUND!");
+            }
         }
     }//GEN-LAST:event_jButton_serach1ActionPerformed
+
+    private void jButton_search2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_search2ActionPerformed
+        
+        int orderNumber_Entered = Integer.parseInt(jTextField_searchOrderNumber.getText());
+        
+        if (customer.get(orderNumber_Entered).equals(null))
+        {
+            jTextArea_searchResult.setText("The order number you have entered does not exist! Please enter a valid order number!");
+        }
+        else
+        {
+                 jTextArea_searchResult.setText("Ttile: " + customer.get(orderNumber_Entered).getTitle() + 
+                                               "\nFirst Name: " + customer.get(orderNumber_Entered).getFirstName() +
+                                               "\nLast Name: " + customer.get(orderNumber_Entered).getLastName() + 
+                                               "\nAddress 1: " + customer.get(orderNumber_Entered).getAddress1() + 
+                                               "\nAddress 2: " + customer.get(orderNumber_Entered).getAddress2() + 
+                                               "\nCity: " + customer.get(orderNumber_Entered).getCity() + 
+                                               "\nState: " + customer.get(orderNumber_Entered).getState() + 
+                                               "\nPsotcode: " + customer.get(orderNumber_Entered).getPostcode() + 
+                                               "\nVisa Number: " + customer.get(orderNumber_Entered).getVisa());
+                }
+    }//GEN-LAST:event_jButton_search2ActionPerformed
 
     /**
      * @param args the command line arguments
