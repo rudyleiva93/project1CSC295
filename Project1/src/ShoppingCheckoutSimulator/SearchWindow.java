@@ -9,12 +9,23 @@ package ShoppingCheckoutSimulator;
  *
  * @author Rudy
  */
+
+import java.util.List;
+import java.util.ArrayList;
 public class SearchWindow extends javax.swing.JFrame {
+    
+    private CheckoutWindow cw;
+    private List<CustomerInfo>customer = new ArrayList<CustomerInfo>();
+    private int orderNumber = 0;
 
     /**
      * Creates new form SearchWindow
      */
-    public SearchWindow() {
+    public SearchWindow(CheckoutWindow cw, List<CustomerInfo> customer, int orderNumber) {
+        this.cw = cw;
+        this.customer = customer;
+        this.orderNumber = orderNumber;
+        
         initComponents();
     }
 
@@ -27,21 +38,137 @@ public class SearchWindow extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1_searchName = new javax.swing.JLabel();
+        jLabel_searchOrderNumber = new javax.swing.JLabel();
+        jTextField_searchName = new javax.swing.JTextField();
+        jTextField_searchOrderNumber = new javax.swing.JTextField();
+        jButton_serach1 = new javax.swing.JButton();
+        jButton_search2 = new javax.swing.JButton();
+        jLabel_searchResult = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea_searchResult = new javax.swing.JTextArea();
+        jButton_modify = new javax.swing.JButton();
+        jButton_delete = new javax.swing.JButton();
+        jButton_ok = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jLabel1_searchName.setText("Search Name");
+
+        jLabel_searchOrderNumber.setText("Search Order Number");
+
+        jButton_serach1.setText("Search");
+        jButton_serach1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_serach1ActionPerformed(evt);
+            }
+        });
+
+        jButton_search2.setText("Search");
+
+        jLabel_searchResult.setText("Search Result");
+
+        jTextArea_searchResult.setColumns(20);
+        jTextArea_searchResult.setRows(5);
+        jScrollPane1.setViewportView(jTextArea_searchResult);
+
+        jButton_modify.setText("Modify");
+
+        jButton_delete.setText("Delete");
+
+        jButton_ok.setText("Ok");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel_searchResult, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jLabel_searchOrderNumber, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel1_searchName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jTextField_searchName)
+                                    .addComponent(jTextField_searchOrderNumber, javax.swing.GroupLayout.DEFAULT_SIZE, 138, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jButton_serach1)
+                                    .addComponent(jButton_search2)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(183, 183, 183)
+                                        .addComponent(jButton_ok)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 111, Short.MAX_VALUE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jScrollPane1)
+                                        .addGap(18, 18, 18)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jButton_modify, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jButton_delete, javax.swing.GroupLayout.Alignment.TRAILING))))
+                        .addGap(35, 35, 35))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1_searchName)
+                    .addComponent(jTextField_searchName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton_serach1))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel_searchOrderNumber)
+                    .addComponent(jTextField_searchOrderNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton_search2))
+                .addGap(49, 49, 49)
+                .addComponent(jLabel_searchResult)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(34, 34, 34)
+                        .addComponent(jButton_modify)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton_delete)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)))
+                .addComponent(jButton_ok)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton_serach1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_serach1ActionPerformed
+        
+        String nameEntered = jTextField_searchName.getText();
+        
+        for (int i = 0; i < customer.size(); i++ )
+        {
+            if (nameEntered.equals(customer.get(i).getFirstName()))
+            {
+                jTextArea_searchResult.setText("Ttile: " + customer.get(i).getTitle() + 
+                                               "\nFirst Name: " + customer.get(i).getFirstName() +
+                                               "\nLast Name: " + customer.get(i).getLastName() + 
+                                               "\nAddress 1: " + customer.get(i).getAddress1() + 
+                                               "\nAddress 2: " + customer.get(i).getAddress2() + 
+                                               "\nCity: " + customer.get(i).getCity() + 
+                                               "\nState: " + customer.get(i).getState() + 
+                                               "\nPsotcode: " + customer.get(i).getPostcode() + 
+                                               "\nVisa Number: " + customer.get(i).getVisa());
+            }
+        }
+    }//GEN-LAST:event_jButton_serach1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -71,13 +198,25 @@ public class SearchWindow extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
+       /* java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new SearchWindow().setVisible(true);
             }
-        });
+        });*/
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton_delete;
+    private javax.swing.JButton jButton_modify;
+    private javax.swing.JButton jButton_ok;
+    private javax.swing.JButton jButton_search2;
+    private javax.swing.JButton jButton_serach1;
+    private javax.swing.JLabel jLabel1_searchName;
+    private javax.swing.JLabel jLabel_searchOrderNumber;
+    private javax.swing.JLabel jLabel_searchResult;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea jTextArea_searchResult;
+    private javax.swing.JTextField jTextField_searchName;
+    private javax.swing.JTextField jTextField_searchOrderNumber;
     // End of variables declaration//GEN-END:variables
 }

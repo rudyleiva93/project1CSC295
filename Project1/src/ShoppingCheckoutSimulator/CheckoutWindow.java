@@ -13,11 +13,13 @@ package ShoppingCheckoutSimulator;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
+import java.util.HashMap;
 
 public class CheckoutWindow extends javax.swing.JFrame {
 
     //private ArrayList<String> customer = new ArrayList<String>();
     private List<CustomerInfo> customer = new ArrayList<CustomerInfo>();
+    private int orderNumber = 1;
     /**
      * Creates new form CheckoutWindow
      */
@@ -283,24 +285,25 @@ public class CheckoutWindow extends javax.swing.JFrame {
         else
       {
           customer.add(cust);
-          JOptionPane.showMessageDialog(null, "Order Submitted! Click the Search button to search, modify, or delete order!", "Order Submitted", JOptionPane.INFORMATION_MESSAGE);
+          JOptionPane.showMessageDialog(null, "Order Submitted! Your order number is: " + orderNumber + "\nClick the Search button to search, modify, or delete order!", "Order Submitted", JOptionPane.INFORMATION_MESSAGE);
           
-         // jTextField_firstName.setText("");
-          //jTextField_lastName.setText("");
-          //jTextField_address1.setText("");
-          //jTextField_address2.setText("");
-          //jTextField_city.setText("");
-          //jTextField_postcode.setText("");
-          //jTextField_visa.setText("");
-          dispose();
+          jTextField_firstName.setText("");
+          jTextField_lastName.setText("");
+          jTextField_address1.setText("");
+          jTextField_address2.setText("");
+          jTextField_city.setText("");
+          jTextField_postcode.setText("");
+          jTextField_visa.setText("");
+          orderNumber++;
+          //dispose();
       }
         
     }//GEN-LAST:event_jButton_submitActionPerformed
 
     private void jButton_searchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_searchActionPerformed
-        
+
         dispose();
-        SearchWindow sw = new SearchWindow();
+        SearchWindow sw = new SearchWindow(this, customer);
         sw.setVisible(true);
     }//GEN-LAST:event_jButton_searchActionPerformed
 
