@@ -16,7 +16,7 @@ public class SearchWindow extends javax.swing.JFrame {
     
     private CheckoutWindow cw;
     private List<CustomerInfo>customer = new ArrayList<CustomerInfo>();
-    //private int orderNumber = 0;
+    private int orderNumber;
 
     /**
      * Creates new form SearchWindow
@@ -24,7 +24,7 @@ public class SearchWindow extends javax.swing.JFrame {
     public SearchWindow(CheckoutWindow cw, List<CustomerInfo> customer) {
         this.cw = cw;
         this.customer = customer;
-       // this.orderNumber = orderNumber;
+        this.orderNumber = orderNumber;
         
         initComponents();
     }
@@ -78,6 +78,11 @@ public class SearchWindow extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTextArea_searchResult);
 
         jButton_modify.setText("Modify");
+        jButton_modify.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_modifyActionPerformed(evt);
+            }
+        });
 
         jButton_delete.setText("Delete");
 
@@ -200,6 +205,13 @@ public class SearchWindow extends javax.swing.JFrame {
                                                "\nVisa Number: " + customer.get(orderNumber_Entered).getVisa());
                 }
     }//GEN-LAST:event_jButton_search2ActionPerformed
+
+    private void jButton_modifyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_modifyActionPerformed
+        
+        dispose();
+        ModifyWindow mw = new ModifyWindow(this, customer, orderNumber);
+        mw.setVisible(true);
+    }//GEN-LAST:event_jButton_modifyActionPerformed
 
     /**
      * @param args the command line arguments

@@ -13,17 +13,23 @@ package ShoppingCheckoutSimulator;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
-import java.util.HashMap;
 
-public class CheckoutWindow extends javax.swing.JFrame {
+public class ModifyWindow extends javax.swing.JFrame {
 
-    //private ArrayList<String> customer = new ArrayList<String>();
-    private List<CustomerInfo> customer = new ArrayList<CustomerInfo>();
-    private int orderNumber = 0;
+    private SearchWindow sw;
+    private List<CustomerInfo>customer = new ArrayList<CustomerInfo>();
+    private int orderNumber;
+    
     /**
-     * Creates new form CheckoutWindow
+     * Creates new form ModifyWindow
      */
-    public CheckoutWindow() {
+    public ModifyWindow(SearchWindow sw, List<CustomerInfo>customer, int orderNumber) {
+        this.sw = sw;
+        this.customer = customer;
+        this.orderNumber = orderNumber;
+        
+        //jTextField_firstName.setText(customer.get(orderNumber).getFirstName());
+        
         initComponents();
     }
 
@@ -36,7 +42,18 @@ public class CheckoutWindow extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        buttonGroup1 = new javax.swing.ButtonGroup();
+        jTextField_address2 = new javax.swing.JTextField();
+        jTextField_visa = new javax.swing.JTextField();
+        jLabel_city = new javax.swing.JLabel();
+        jRadioButton_mr = new javax.swing.JRadioButton();
+        jTextField_city = new javax.swing.JTextField();
+        jRadioButton_ms = new javax.swing.JRadioButton();
+        jLabel_state = new javax.swing.JLabel();
+        jRadioButton_mrs = new javax.swing.JRadioButton();
+        jComboBox_state = new javax.swing.JComboBox<>();
+        jLabel_postcode = new javax.swing.JLabel();
+        jTextField_postcode = new javax.swing.JTextField();
+        jButton_cancel = new javax.swing.JButton();
         jLabel_title = new javax.swing.JLabel();
         jLabel_firstName = new javax.swing.JLabel();
         jTextField_firstName = new javax.swing.JTextField();
@@ -44,38 +61,21 @@ public class CheckoutWindow extends javax.swing.JFrame {
         jTextField_lastName = new javax.swing.JTextField();
         jLabel_address1 = new javax.swing.JLabel();
         jTextField_address1 = new javax.swing.JTextField();
-        jLabel_address2 = new javax.swing.JLabel();
-        jTextField_address2 = new javax.swing.JTextField();
-        jLabel_city = new javax.swing.JLabel();
-        jTextField_city = new javax.swing.JTextField();
-        jLabel_state = new javax.swing.JLabel();
-        jComboBox_state = new javax.swing.JComboBox<>();
-        jLabel_postcode = new javax.swing.JLabel();
-        jTextField_postcode = new javax.swing.JTextField();
-        jButton_cancel = new javax.swing.JButton();
-        jButton_search = new javax.swing.JButton();
         jButton_submit = new javax.swing.JButton();
+        jLabel_address2 = new javax.swing.JLabel();
         jLabel_visa = new javax.swing.JLabel();
-        jTextField_visa = new javax.swing.JTextField();
-        jRadioButton_mr = new javax.swing.JRadioButton();
-        jRadioButton_ms = new javax.swing.JRadioButton();
-        jRadioButton_mrs = new javax.swing.JRadioButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel_title.setText("Title");
-
-        jLabel_firstName.setText("First Name");
-
-        jLabel_lastName.setText("Last Name");
-
-        jLabel_address1.setText("Address 1");
-
-        jLabel_address2.setText("Address 2");
-
         jLabel_city.setText("City");
 
+        jRadioButton_mr.setText("Mr.");
+
+        jRadioButton_ms.setText("Ms.");
+
         jLabel_state.setText("State");
+
+        jRadioButton_mrs.setText("Mrs.");
 
         jComboBox_state.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "California", "Florida", "New York", "Texas", "Washington" }));
 
@@ -88,12 +88,19 @@ public class CheckoutWindow extends javax.swing.JFrame {
             }
         });
 
-        jButton_search.setText("Search");
-        jButton_search.addActionListener(new java.awt.event.ActionListener() {
+        jLabel_title.setText("Title");
+
+        jLabel_firstName.setText("First Name");
+
+        jTextField_firstName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton_searchActionPerformed(evt);
+                jTextField_firstNameActionPerformed(evt);
             }
         });
+
+        jLabel_lastName.setText("Last Name");
+
+        jLabel_address1.setText("Address 1");
 
         jButton_submit.setText("Submit");
         jButton_submit.addActionListener(new java.awt.event.ActionListener() {
@@ -102,16 +109,9 @@ public class CheckoutWindow extends javax.swing.JFrame {
             }
         });
 
+        jLabel_address2.setText("Address 2");
+
         jLabel_visa.setText("Visa");
-
-        buttonGroup1.add(jRadioButton_mr);
-        jRadioButton_mr.setText("Mr.");
-
-        buttonGroup1.add(jRadioButton_ms);
-        jRadioButton_ms.setText("Ms.");
-
-        buttonGroup1.add(jRadioButton_mrs);
-        jRadioButton_mrs.setText("Mrs.");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -122,9 +122,7 @@ public class CheckoutWindow extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jButton_cancel)
-                        .addGap(91, 91, 91)
-                        .addComponent(jButton_search)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 122, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton_submit))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -167,7 +165,7 @@ public class CheckoutWindow extends javax.swing.JFrame {
                                             .addGap(18, 18, 18)
                                             .addComponent(jRadioButton_mrs))
                                         .addComponent(jTextField_firstName)))))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 97, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -211,10 +209,9 @@ public class CheckoutWindow extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel_visa)
                     .addComponent(jTextField_visa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton_cancel)
-                    .addComponent(jButton_search)
                     .addComponent(jButton_submit))
                 .addGap(68, 68, 68))
         );
@@ -222,15 +219,14 @@ public class CheckoutWindow extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton_cancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_cancelActionPerformed
+        dispose();
+    }//GEN-LAST:event_jButton_cancelActionPerformed
+
     private void jButton_submitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_submitActionPerformed
-        
+
         CustomerInfo cust = new CustomerInfo();
-        
-        //jRadioButton_mr.setActionCommand(jRadioButton_mr.getText());
-        //jRadioButton_ms.setActionCommand(jRadioButton_ms.getText());
-        //jRadioButton_mrs.setActionCommand(jRadioButton_mrs.getText());
-        //cust.setTitle(buttonGroup1.getSelection().getActionCommand());
-        
+
         if (jRadioButton_mr.isSelected())
         {
             cust.setTitle(jRadioButton_mr.getText());
@@ -247,7 +243,7 @@ public class CheckoutWindow extends javax.swing.JFrame {
         {
             JOptionPane.showMessageDialog(null, "Must Select a title!", "Error", JOptionPane.ERROR_MESSAGE);
         }
-        
+
         cust.setFirstName(jTextField_firstName.getText());
         cust.setLastName(jTextField_lastName.getText());
         cust.setAddress1(jTextField_address1.getText());
@@ -257,59 +253,52 @@ public class CheckoutWindow extends javax.swing.JFrame {
         cust.setState(state);
         cust.setPostcode(jTextField_postcode.getText());
         cust.setVisa(jTextField_visa.getText());
-        
-      if (cust.getFirstName().equals(""))
-      {
-          JOptionPane.showMessageDialog(null, "Must enter your first name!", "Error", JOptionPane.ERROR_MESSAGE);
-      }
-      else if (cust.getLastName().equals(""))
-      {
-          JOptionPane.showMessageDialog(null, "Must enter your last name!", "Error", JOptionPane.ERROR_MESSAGE);
-      }
-      else if (cust.getAddress1().equals(""))
-      {
-          JOptionPane.showMessageDialog(null, "Must enter your address!", "Error", JOptionPane.ERROR_MESSAGE);
-      }
-      else if (cust.getCity().equals(""))
-      {
-          JOptionPane.showMessageDialog(null, "Must enter your city!", "Error", JOptionPane.ERROR_MESSAGE);
-      }
-      else if (cust.getPostcode().equals(""))
-      {
-          JOptionPane.showMessageDialog(null, "Must enter your postcode!", "Error", JOptionPane.ERROR_MESSAGE);
-      }
-      else if (cust.getVisa().equals(""))
-      {
-          JOptionPane.showMessageDialog(null, "Must enter your visa number!", "Error", JOptionPane.ERROR_MESSAGE);
-      }
+
+        if (cust.getFirstName().equals(""))
+        {
+            JOptionPane.showMessageDialog(null, "Must enter your first name!", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+        else if (cust.getLastName().equals(""))
+        {
+            JOptionPane.showMessageDialog(null, "Must enter your last name!", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+        else if (cust.getAddress1().equals(""))
+        {
+            JOptionPane.showMessageDialog(null, "Must enter your address!", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+        else if (cust.getCity().equals(""))
+        {
+            JOptionPane.showMessageDialog(null, "Must enter your city!", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+        else if (cust.getPostcode().equals(""))
+        {
+            JOptionPane.showMessageDialog(null, "Must enter your postcode!", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+        else if (cust.getVisa().equals(""))
+        {
+            JOptionPane.showMessageDialog(null, "Must enter your visa number!", "Error", JOptionPane.ERROR_MESSAGE);
+        }
         else
-      {
-          customer.add(orderNumber, cust);
-          JOptionPane.showMessageDialog(null, "Order Submitted! Your order number is: " + orderNumber + "\nClick the Search button to search, modify, or delete order!", "Order Submitted", JOptionPane.INFORMATION_MESSAGE);
-          
-          jTextField_firstName.setText("");
-          jTextField_lastName.setText("");
-          jTextField_address1.setText("");
-          jTextField_address2.setText("");
-          jTextField_city.setText("");
-          jTextField_postcode.setText("");
-          jTextField_visa.setText("");
-          orderNumber++;
-          //dispose();
-      }
-        
+        {
+            customer.add(cust);
+            JOptionPane.showMessageDialog(null, "Order Modified!", "Order Submitted", JOptionPane.INFORMATION_MESSAGE);
+
+            jTextField_firstName.setText("");
+            jTextField_lastName.setText("");
+            jTextField_address1.setText("");
+            jTextField_address2.setText("");
+            jTextField_city.setText("");
+            jTextField_postcode.setText("");
+            jTextField_visa.setText("");
+            //orderNumber++;
+            //dispose();
+        }
+
     }//GEN-LAST:event_jButton_submitActionPerformed
 
-    private void jButton_searchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_searchActionPerformed
-
-        dispose();
-        SearchWindow sw = new SearchWindow(this, customer);
-        sw.setVisible(true);
-    }//GEN-LAST:event_jButton_searchActionPerformed
-
-    private void jButton_cancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_cancelActionPerformed
-        dispose();
-    }//GEN-LAST:event_jButton_cancelActionPerformed
+    private void jTextField_firstNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField_firstNameActionPerformed
+        //jTextField_firstName.setText(customer.get(orderNumber).getFirstName());
+    }//GEN-LAST:event_jTextField_firstNameActionPerformed
 
     /**
      * @param args the command line arguments
@@ -328,28 +317,26 @@ public class CheckoutWindow extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CheckoutWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ModifyWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CheckoutWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ModifyWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CheckoutWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ModifyWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CheckoutWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ModifyWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
+        /*java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CheckoutWindow().setVisible(true);
+                new ModifyWindow().setVisible(true);
             }
-        });
+        });*/
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton jButton_cancel;
-    private javax.swing.JButton jButton_search;
     private javax.swing.JButton jButton_submit;
     private javax.swing.JComboBox<String> jComboBox_state;
     private javax.swing.JLabel jLabel_address1;
