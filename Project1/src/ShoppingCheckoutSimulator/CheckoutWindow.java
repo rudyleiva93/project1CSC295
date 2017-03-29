@@ -13,7 +13,7 @@ package ShoppingCheckoutSimulator;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
-import java.util.HashMap;
+
 
 public class CheckoutWindow extends javax.swing.JFrame {
 
@@ -295,7 +295,7 @@ public class CheckoutWindow extends javax.swing.JFrame {
           jTextField_postcode.setText("");
           jPasswordField_visa.setText("");
           orderNumber++;
-          this.setVisible(false);
+          //this.setVisible(false);
           //dispose();
       }
         

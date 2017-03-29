@@ -17,7 +17,7 @@ import javax.swing.JOptionPane;
 public class SearchWindow extends javax.swing.JFrame {
     
     private CheckoutWindow cw;
-    private List<CustomerInfo>customer = new ArrayList<CustomerInfo>();
+    private List<CustomerInfo>customer = new ArrayList<>();
     private int orderNumber;
 
     /**
@@ -94,6 +94,11 @@ public class SearchWindow extends javax.swing.JFrame {
         });
 
         jButton_ok.setText("Ok");
+        jButton_ok.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_okActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -226,6 +231,12 @@ public class SearchWindow extends javax.swing.JFrame {
         //System.out.println("Customer removed");
         JOptionPane.showMessageDialog(null, "Customer has been removed.", "Customer Removed", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_jButton_deleteActionPerformed
+
+    private void jButton_okActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_okActionPerformed
+        
+        this.setVisible(false);
+        cw.setVisible(true);
+    }//GEN-LAST:event_jButton_okActionPerformed
 
     /**
      * @param args the command line arguments
