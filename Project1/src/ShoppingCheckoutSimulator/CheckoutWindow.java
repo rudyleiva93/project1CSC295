@@ -18,7 +18,7 @@ import java.util.HashMap;
 public class CheckoutWindow extends javax.swing.JFrame {
 
     //private ArrayList<String> customer = new ArrayList<String>();
-    private List<CustomerInfo> customer = new ArrayList<CustomerInfo>();
+    private List<CustomerInfo> customer = new ArrayList<>();
     private int orderNumber = 0;
     /**
      * Creates new form CheckoutWindow

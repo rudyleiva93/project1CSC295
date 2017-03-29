@@ -17,7 +17,7 @@ import javax.swing.JOptionPane;
 public class ModifyWindow extends javax.swing.JFrame {
 
     private SearchWindow sw;
-    private List<CustomerInfo>customer = new ArrayList<CustomerInfo>();
+    private List<CustomerInfo>customer;
     private int orderNumber;
     
     /**
@@ -28,7 +28,7 @@ public class ModifyWindow extends javax.swing.JFrame {
         this.customer = customer;
         this.orderNumber = orderNumber;
         
-        //jTextField_firstName.setText(customer.get(orderNumber).getFirstName());
+       // jTextField_firstName.setText(customer.get(orderNumber).getFirstName());
         
         initComponents();
     }
