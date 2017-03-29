@@ -66,10 +66,10 @@
                                       <Component id="jLabel_state" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="24" pref="24" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                       <Component id="jComboBox_state" alignment="0" min="-2" pref="96" max="-2" attributes="0"/>
-                                      <Component id="jTextField_visa" min="-2" pref="114" max="-2" attributes="0"/>
-                                      <Component id="jTextField_postcode" min="-2" pref="114" max="-2" attributes="0"/>
+                                      <Component id="jTextField_postcode" pref="114" max="32767" attributes="0"/>
+                                      <Component id="jPasswordField_visa" alignment="0" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
@@ -146,7 +146,7 @@
               <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel_visa" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jTextField_visa" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jPasswordField_visa" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="33" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -257,8 +257,6 @@
         <Property name="text" type="java.lang.String" value="Visa"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField_visa">
-    </Component>
     <Component class="javax.swing.JRadioButton" name="jRadioButton_mr">
       <Properties>
         <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
@@ -282,6 +280,8 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Mrs."/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JPasswordField" name="jPasswordField_visa">
     </Component>
   </SubComponents>
 </Form>

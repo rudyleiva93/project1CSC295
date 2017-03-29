@@ -56,10 +56,10 @@ public class CheckoutWindow extends javax.swing.JFrame {
         jButton_search = new javax.swing.JButton();
         jButton_submit = new javax.swing.JButton();
         jLabel_visa = new javax.swing.JLabel();
-        jTextField_visa = new javax.swing.JTextField();
         jRadioButton_mr = new javax.swing.JRadioButton();
         jRadioButton_ms = new javax.swing.JRadioButton();
         jRadioButton_mrs = new javax.swing.JRadioButton();
+        jPasswordField_visa = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -150,10 +150,10 @@ public class CheckoutWindow extends javax.swing.JFrame {
                                         .addComponent(jLabel_visa)
                                         .addComponent(jLabel_state))
                                     .addGap(24, 24, 24)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                         .addComponent(jComboBox_state, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jTextField_visa, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jTextField_postcode, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(jTextField_postcode, javax.swing.GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE)
+                                        .addComponent(jPasswordField_visa)))
                                 .addGroup(layout.createSequentialGroup()
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(jLabel_firstName)
@@ -210,7 +210,7 @@ public class CheckoutWindow extends javax.swing.JFrame {
                 .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel_visa)
-                    .addComponent(jTextField_visa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jPasswordField_visa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton_cancel)
@@ -256,7 +256,7 @@ public class CheckoutWindow extends javax.swing.JFrame {
         String state = (String)jComboBox_state.getSelectedItem();
         cust.setState(state);
         cust.setPostcode(jTextField_postcode.getText());
-        cust.setVisa(jTextField_visa.getText());
+        cust.setVisa(jPasswordField_visa.getText());
         
       if (cust.getFirstName().equals(""))
       {
@@ -293,8 +293,9 @@ public class CheckoutWindow extends javax.swing.JFrame {
           jTextField_address2.setText("");
           jTextField_city.setText("");
           jTextField_postcode.setText("");
-          jTextField_visa.setText("");
+          jPasswordField_visa.setText("");
           orderNumber++;
+          this.setVisible(false);
           //dispose();
       }
         
@@ -361,6 +362,7 @@ public class CheckoutWindow extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel_state;
     private javax.swing.JLabel jLabel_title;
     private javax.swing.JLabel jLabel_visa;
+    private javax.swing.JPasswordField jPasswordField_visa;
     private javax.swing.JRadioButton jRadioButton_mr;
     private javax.swing.JRadioButton jRadioButton_mrs;
     private javax.swing.JRadioButton jRadioButton_ms;
@@ -370,6 +372,5 @@ public class CheckoutWindow extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField_firstName;
     private javax.swing.JTextField jTextField_lastName;
     private javax.swing.JTextField jTextField_postcode;
-    private javax.swing.JTextField jTextField_visa;
     // End of variables declaration//GEN-END:variables
 }

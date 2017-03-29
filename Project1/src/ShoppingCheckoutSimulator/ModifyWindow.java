@@ -43,7 +43,6 @@ public class ModifyWindow extends javax.swing.JFrame {
     private void initComponents() {
 
         jTextField_address2 = new javax.swing.JTextField();
-        jTextField_visa = new javax.swing.JTextField();
         jLabel_city = new javax.swing.JLabel();
         jRadioButton_mr = new javax.swing.JRadioButton();
         jTextField_city = new javax.swing.JTextField();
@@ -64,6 +63,7 @@ public class ModifyWindow extends javax.swing.JFrame {
         jButton_submit = new javax.swing.JButton();
         jLabel_address2 = new javax.swing.JLabel();
         jLabel_visa = new javax.swing.JLabel();
+        jPasswordField_visa = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -148,10 +148,10 @@ public class ModifyWindow extends javax.swing.JFrame {
                                         .addComponent(jLabel_visa)
                                         .addComponent(jLabel_state))
                                     .addGap(24, 24, 24)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                         .addComponent(jComboBox_state, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jTextField_visa, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jTextField_postcode, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(jTextField_postcode, javax.swing.GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE)
+                                        .addComponent(jPasswordField_visa)))
                                 .addGroup(layout.createSequentialGroup()
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(jLabel_firstName)
@@ -208,7 +208,7 @@ public class ModifyWindow extends javax.swing.JFrame {
                 .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel_visa)
-                    .addComponent(jTextField_visa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jPasswordField_visa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton_cancel)
@@ -225,73 +225,73 @@ public class ModifyWindow extends javax.swing.JFrame {
 
     private void jButton_submitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_submitActionPerformed
 
-        CustomerInfo cust = new CustomerInfo();
-
         if (jRadioButton_mr.isSelected())
         {
-            cust.setTitle(jRadioButton_mr.getText());
+            customer.get(orderNumber).setTitle(jRadioButton_mr.getText());
         }
         else if (jRadioButton_ms.isSelected())
         {
-            cust.setTitle(jRadioButton_ms.getText());
+            customer.get(orderNumber).setTitle(jRadioButton_ms.getText());
         }
         else if (jRadioButton_mrs.isSelected())
         {
-            cust.setTitle(jRadioButton_mrs.getText());
+            customer.get(orderNumber).setTitle(jRadioButton_mrs.getText());
         }
         else
         {
             JOptionPane.showMessageDialog(null, "Must Select a title!", "Error", JOptionPane.ERROR_MESSAGE);
         }
-
-        cust.setFirstName(jTextField_firstName.getText());
-        cust.setLastName(jTextField_lastName.getText());
-        cust.setAddress1(jTextField_address1.getText());
-        cust.setAddress2(jTextField_address2.getText());
-        cust.setCity(jTextField_city.getText());
+        
+        
+        customer.get(orderNumber).setFirstName(jTextField_firstName.getText());
+        customer.get(orderNumber).setLastName(jTextField_lastName.getText());
+        customer.get(orderNumber).setAddress1(jTextField_address1.getText());
+        customer.get(orderNumber).setAddress2(jTextField_address2.getText());
+        customer.get(orderNumber).setCity(jTextField_city.getText());
         String state = (String)jComboBox_state.getSelectedItem();
-        cust.setState(state);
-        cust.setPostcode(jTextField_postcode.getText());
-        cust.setVisa(jTextField_visa.getText());
+        customer.get(orderNumber).setState(state);
+        customer.get(orderNumber).setPostcode(jTextField_postcode.getText());
+        customer.get(orderNumber).setVisa(jPasswordField_visa.getText());
 
-        if (cust.getFirstName().equals(""))
+        if (customer.get(orderNumber).getFirstName().equals(""))
         {
             JOptionPane.showMessageDialog(null, "Must enter your first name!", "Error", JOptionPane.ERROR_MESSAGE);
         }
-        else if (cust.getLastName().equals(""))
+        else if (customer.get(orderNumber).getLastName().equals(""))
         {
             JOptionPane.showMessageDialog(null, "Must enter your last name!", "Error", JOptionPane.ERROR_MESSAGE);
         }
-        else if (cust.getAddress1().equals(""))
+        else if (customer.get(orderNumber).getAddress1().equals(""))
         {
             JOptionPane.showMessageDialog(null, "Must enter your address!", "Error", JOptionPane.ERROR_MESSAGE);
         }
-        else if (cust.getCity().equals(""))
+        else if (customer.get(orderNumber).getCity().equals(""))
         {
             JOptionPane.showMessageDialog(null, "Must enter your city!", "Error", JOptionPane.ERROR_MESSAGE);
         }
-        else if (cust.getPostcode().equals(""))
+        else if (customer.get(orderNumber).getPostcode().equals(""))
         {
             JOptionPane.showMessageDialog(null, "Must enter your postcode!", "Error", JOptionPane.ERROR_MESSAGE);
         }
-        else if (cust.getVisa().equals(""))
+        else if (customer.get(orderNumber).getVisa().equals(""))
         {
             JOptionPane.showMessageDialog(null, "Must enter your visa number!", "Error", JOptionPane.ERROR_MESSAGE);
         }
         else
         {
-            customer.add(cust);
+            //customer.add(cust);
             JOptionPane.showMessageDialog(null, "Order Modified!", "Order Submitted", JOptionPane.INFORMATION_MESSAGE);
 
-            jTextField_firstName.setText("");
+            /*jTextField_firstName.setText("");
             jTextField_lastName.setText("");
             jTextField_address1.setText("");
             jTextField_address2.setText("");
             jTextField_city.setText("");
             jTextField_postcode.setText("");
-            jTextField_visa.setText("");
+            jPasswordField_visa.setText("");*/
             //orderNumber++;
-            //dispose();
+            this.setVisible(false);
+            sw.setVisible(true);
         }
 
     }//GEN-LAST:event_jButton_submitActionPerformed
@@ -348,6 +348,7 @@ public class ModifyWindow extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel_state;
     private javax.swing.JLabel jLabel_title;
     private javax.swing.JLabel jLabel_visa;
+    private javax.swing.JPasswordField jPasswordField_visa;
     private javax.swing.JRadioButton jRadioButton_mr;
     private javax.swing.JRadioButton jRadioButton_mrs;
     private javax.swing.JRadioButton jRadioButton_ms;
@@ -357,6 +358,5 @@ public class ModifyWindow extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField_firstName;
     private javax.swing.JTextField jTextField_lastName;
     private javax.swing.JTextField jTextField_postcode;
-    private javax.swing.JTextField jTextField_visa;
     // End of variables declaration//GEN-END:variables
 }
