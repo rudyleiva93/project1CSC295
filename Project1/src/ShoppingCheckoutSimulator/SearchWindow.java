@@ -12,6 +12,8 @@ package ShoppingCheckoutSimulator;
 
 import java.util.List;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
+
 public class SearchWindow extends javax.swing.JFrame {
     
     private CheckoutWindow cw;
@@ -85,6 +87,11 @@ public class SearchWindow extends javax.swing.JFrame {
         });
 
         jButton_delete.setText("Delete");
+        jButton_delete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_deleteActionPerformed(evt);
+            }
+        });
 
         jButton_ok.setText("Ok");
 
@@ -188,7 +195,7 @@ public class SearchWindow extends javax.swing.JFrame {
         
         int orderNumber_Entered = Integer.parseInt(jTextField_searchOrderNumber.getText());
         
-        if (customer.get(orderNumber_Entered).equals(null))
+        if ((customer.get(orderNumber_Entered)).equals(null))
         {
             jTextArea_searchResult.setText("The order number you have entered does not exist! Please enter a valid order number!");
         }
@@ -212,6 +219,13 @@ public class SearchWindow extends javax.swing.JFrame {
         ModifyWindow mw = new ModifyWindow(this, customer, orderNumber);
         mw.setVisible(true);
     }//GEN-LAST:event_jButton_modifyActionPerformed
+
+    private void jButton_deleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_deleteActionPerformed
+        
+        customer.remove(orderNumber);
+        //System.out.println("Customer removed");
+        JOptionPane.showMessageDialog(null, "Customer has been removed.", "Customer Removed", JOptionPane.INFORMATION_MESSAGE);
+    }//GEN-LAST:event_jButton_deleteActionPerformed
 
     /**
      * @param args the command line arguments
