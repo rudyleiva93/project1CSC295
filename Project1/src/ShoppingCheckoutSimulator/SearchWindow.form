@@ -44,8 +44,8 @@
                               </Group>
                               <EmptySpace max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jButton_serach1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jButton_search2" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jButton_serachName" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jButton_searchOrderNumber" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
@@ -79,13 +79,13 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel1_searchName" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jTextField_searchName" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jButton_serach1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jButton_serachName" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel_searchOrderNumber" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jTextField_searchOrderNumber" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jButton_search2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jButton_searchOrderNumber" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
               <Component id="jLabel_searchResult" min="-2" max="-2" attributes="0"/>
@@ -124,20 +124,20 @@
     </Component>
     <Component class="javax.swing.JTextField" name="jTextField_searchOrderNumber">
     </Component>
-    <Component class="javax.swing.JButton" name="jButton_serach1">
+    <Component class="javax.swing.JButton" name="jButton_serachName">
       <Properties>
         <Property name="text" type="java.lang.String" value="Search"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton_serach1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton_serachNameActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton_search2">
+    <Component class="javax.swing.JButton" name="jButton_searchOrderNumber">
       <Properties>
         <Property name="text" type="java.lang.String" value="Search"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton_search2ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton_searchOrderNumberActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel_searchResult">

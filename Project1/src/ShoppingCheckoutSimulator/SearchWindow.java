@@ -26,7 +26,7 @@ public class SearchWindow extends javax.swing.JFrame {
     public SearchWindow(CheckoutWindow cw, List<CustomerInfo> customer) {
         this.cw = cw;
         this.customer = customer;
-        this.orderNumber = orderNumber;
+        //this.orderNumber = orderNumber;
         
         initComponents();
     }
@@ -44,8 +44,8 @@ public class SearchWindow extends javax.swing.JFrame {
         jLabel_searchOrderNumber = new javax.swing.JLabel();
         jTextField_searchName = new javax.swing.JTextField();
         jTextField_searchOrderNumber = new javax.swing.JTextField();
-        jButton_serach1 = new javax.swing.JButton();
-        jButton_search2 = new javax.swing.JButton();
+        jButton_serachName = new javax.swing.JButton();
+        jButton_searchOrderNumber = new javax.swing.JButton();
         jLabel_searchResult = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea_searchResult = new javax.swing.JTextArea();
@@ -59,17 +59,17 @@ public class SearchWindow extends javax.swing.JFrame {
 
         jLabel_searchOrderNumber.setText("Search Order Number");
 
-        jButton_serach1.setText("Search");
-        jButton_serach1.addActionListener(new java.awt.event.ActionListener() {
+        jButton_serachName.setText("Search");
+        jButton_serachName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton_serach1ActionPerformed(evt);
+                jButton_serachNameActionPerformed(evt);
             }
         });
 
-        jButton_search2.setText("Search");
-        jButton_search2.addActionListener(new java.awt.event.ActionListener() {
+        jButton_searchOrderNumber.setText("Search");
+        jButton_searchOrderNumber.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton_search2ActionPerformed(evt);
+                jButton_searchOrderNumberActionPerformed(evt);
             }
         });
 
@@ -122,8 +122,8 @@ public class SearchWindow extends javax.swing.JFrame {
                                     .addComponent(jTextField_searchOrderNumber, javax.swing.GroupLayout.DEFAULT_SIZE, 138, Short.MAX_VALUE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jButton_serach1)
-                                    .addComponent(jButton_search2)))
+                                    .addComponent(jButton_serachName)
+                                    .addComponent(jButton_searchOrderNumber)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
@@ -145,12 +145,12 @@ public class SearchWindow extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1_searchName)
                     .addComponent(jTextField_searchName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton_serach1))
+                    .addComponent(jButton_serachName))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel_searchOrderNumber)
                     .addComponent(jTextField_searchOrderNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton_search2))
+                    .addComponent(jButton_searchOrderNumber))
                 .addGap(49, 49, 49)
                 .addComponent(jLabel_searchResult)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -171,7 +171,7 @@ public class SearchWindow extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton_serach1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_serach1ActionPerformed
+    private void jButton_serachNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_serachNameActionPerformed
         
         String nameEntered = jTextField_searchName.getText();
         
@@ -194,9 +194,9 @@ public class SearchWindow extends javax.swing.JFrame {
                 jTextArea_searchResult.setText("CUSTOMER NAME NOT FOUND!");
             }
         }
-    }//GEN-LAST:event_jButton_serach1ActionPerformed
+    }//GEN-LAST:event_jButton_serachNameActionPerformed
 
-    private void jButton_search2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_search2ActionPerformed
+    private void jButton_searchOrderNumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_searchOrderNumberActionPerformed
         
         int orderNumber_Entered = Integer.parseInt(jTextField_searchOrderNumber.getText());
         
@@ -216,7 +216,7 @@ public class SearchWindow extends javax.swing.JFrame {
                                                "\nPsotcode: " + customer.get(orderNumber_Entered).getPostcode() + 
                                                "\nVisa Number: " + customer.get(orderNumber_Entered).getVisa());
                 }
-    }//GEN-LAST:event_jButton_search2ActionPerformed
+    }//GEN-LAST:event_jButton_searchOrderNumberActionPerformed
 
     private void jButton_modifyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_modifyActionPerformed
         
@@ -277,8 +277,8 @@ public class SearchWindow extends javax.swing.JFrame {
     private javax.swing.JButton jButton_delete;
     private javax.swing.JButton jButton_modify;
     private javax.swing.JButton jButton_ok;
-    private javax.swing.JButton jButton_search2;
-    private javax.swing.JButton jButton_serach1;
+    private javax.swing.JButton jButton_searchOrderNumber;
+    private javax.swing.JButton jButton_serachName;
     private javax.swing.JLabel jLabel1_searchName;
     private javax.swing.JLabel jLabel_searchOrderNumber;
     private javax.swing.JLabel jLabel_searchResult;
